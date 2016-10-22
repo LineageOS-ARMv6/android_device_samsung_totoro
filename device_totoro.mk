@@ -19,19 +19,15 @@ $(call inherit-product, vendor/samsung/totoro/vendor.mk)
 # Add device package overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/totoro/overlay
 
-# Add LDPI assets, in addition to MDPI
-PRODUCT_AAPT_PREF_CONFIG := ldpi mdpi
-
-## LDPI assets
-PRODUCT_AAPT_CONFIG := normal mdpi ldpi
-PRODUCT_AAPT_PREF_CONFIG :=ldpi
-
-# Prebuilt Kernel - DELETE from the package
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/samsung/totoro/prebuilt/kernel
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
+# These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml
+
+# Enable repeatable keys in CWM
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cwm.enable_key_repeat=true \
+    ro.cwm.repeatable_keys=114,115
+
+# LDPI assets
+PRODUCT_AAPT_CONFIG := normal mdpi ldpi
+PRODUCT_AAPT_PREF_CONFIG := ldpi mdpi

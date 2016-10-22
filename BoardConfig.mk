@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2009 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,35 +17,29 @@
 # Product-specific compile-time definitions.
 #
 
-LOCAL_PATH:= $(call my-dir)
-
+# Import the bcm21553-common BoardConfigCommon.mk
 include device/samsung/bcm21553-common/BoardConfigCommon.mk
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= device/samsung/totoro/bluetooth
+
 # Board
-TARGET_BOARD_PLATFORM 				:= bcm21553
-TARGET_BOOTLOADER_BOARD_NAME 			:= totoro
+TARGET_BOARD_PLATFORM				:= bcm21553
+TARGET_BOOTLOADER_BOARD_NAME			:= totoro
 
 # Recovery
-BOARD_BML_RECOVERY				:= /dev/block/bml8
-TARGET_USERIMAGES_USE_EXT4			:= true
-BOARD_RECOVERY_HANDLES_MOUNT			:= true
-BOARD_HAS_DOWNLOAD_MODE				:= true
 BOARD_BOOTIMAGE_PARTITION_SIZE			:= 7357568
 BOARD_RECOVERYIMAGE_PARTITION_SIZE		:= 7357568
 BOARD_SYSTEMIMAGE_PARTITION_SIZE		:= 241172480
 BOARD_USERDATAIMAGE_PARTITION_SIZE		:= 206831616
-BOARD_FLASH_BLOCK_SIZE				:= 131072
 BOARD_LDPI_RECOVERY				:= true
+BOARD_USE_CUSTOM_RECOVERY_FONT			:= "<font_7x16.h>"
 
-TARGET_RECOVERY_FSTAB				:= device/samsung/totoro/recovery/recovery.fstab
+# Kernel config
+TARGET_KERNEL_CONFIG				:= cyanogenmod_totoro_defconfig
 
-# Prebuilt kernel NOTE: Delete from package
-TARGET_PREBUILT_KERNEL				:= device/samsung/totoro/prebuilt/kernel
-#TARGET_KERNEL_CONFIG := cyanogenmod_totoro_defconfig
+# OTA override
+TARGET_OTA_ASSERT_DEVICE			:= totoro,GT-S5360,GT-S5360B,GT-S5360L,GT-S5369
 
-# Kernel defines
-BOARD_NAND_PAGE_SIZE				:= 4096 -s 128
-BOARD_KERNEL_BASE				:= 0x81600000
-BOARD_KERNEL_PAGESIZE				:= 4096
-BOARD_PAGE_SIZE					:= 0x00001000
-BOARD_KERNEL_CMDLINE				:= 
+# TWRP
+DEVICE_RESOLUTION := 240x320
