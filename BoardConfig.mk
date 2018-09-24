@@ -20,8 +20,10 @@
 # Import the bcm21553-common BoardConfigCommon.mk
 include device/samsung/bcm21553-common/BoardConfigCommon.mk
 
+DEVICE_PATH := device/samsung/totoro
+
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= device/samsung/totoro/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= $(DEVICE_PATH)/bluetooth
 
 # Board
 TARGET_BOARD_PLATFORM				:= bcm21553

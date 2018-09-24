@@ -29,5 +29,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.repeatable_keys=114,115
 
 # LDPI assets
-PRODUCT_AAPT_CONFIG := normal mdpi ldpi
+PRODUCT_AAPT_CONFIG := normal ldpi mdpi nodpi
 PRODUCT_AAPT_PREF_CONFIG := ldpi mdpi

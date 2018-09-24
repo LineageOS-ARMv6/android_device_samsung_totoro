@@ -1,0 +1,8 @@
+[
+ {
+   "remote":"github",
+   "repository": "LineageOS-ARMv6/android_device_samsung_bcm21553-common",
+   "target_path": "device/samsung/bcm21553-common",
+   "revision":"ics"
+ }
+]
